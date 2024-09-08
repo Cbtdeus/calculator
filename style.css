@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+.calculator{
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    width: 500px;
+    justify-content: center;
+    
+
+}
+.keypad{
+    display: flex;
+    flex-grow: 0;
+    flex-wrap: wrap;
+}
+.key{
+    height: 100px;
+    width: 100px;
+}
+
+.textbox{
+    height: 100px;                                                                                  /* TODO: make it 4 blocks wide instead of 5 */
+}
+#equal{
+    width: 200px;
+}                                                                                           /* make it pretty:add different colors to differentiate, operators and operands,add rounded buttons */
+                                                                                            /* and borders */
+                                                                                            
