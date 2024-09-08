@@ -123,7 +123,7 @@ negativeButton.addEventListener("click", () =>{
     if (textbox.value.charAt(0) == "-"){
         textbox.value = textbox.value.slice(1)                                                                  /* TODO: remove user access to textbox and add keyboard support thru listeners */
     }
-    else{
+    else{                                                                                                                               /* make textbox bg a nice color */
         textbox.value = "-" + textbox.value
     }                                                                                                                  
 })
@@ -139,11 +139,13 @@ decimalButton.addEventListener("click", () => {
     textbox.value = textbox.value + "."
 
 })
+keypad.appendChild(removelastbutton)
+keypad.appendChild(clearbutton)
+
+keypad.appendChild(negativeButton)
+
 
 keypad.appendChild(dividebutton)
-keypad.appendChild(negativeButton)
-keypad.appendChild(clearbutton)
-keypad.appendChild(removelastbutton)
  
 for (let i = 0 ; i !== 10; i++){
 
@@ -161,5 +163,6 @@ keypad.appendChild(additionbutton)
 keypad.appendChild(decimalButton)
 
 keypad.appendChild(equalbutton)
-keypad.insertBefore(document.getElementById("0"), equalbutton)
-
+keypad.insertBefore(document.getElementById("0"), decimalButton)
+document.getElementById("0").style.width = "200px"
+document.getElementById("0").style.marginRight = "12px"
