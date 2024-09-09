@@ -9,12 +9,14 @@ function subtract(x,y){
 function multiply(x,y){
     return x * y
 }
-function divide(x,y){
+function divide(x,y){                                           /* pressing equals before stating the second number has some sussy behaviour on multiply and divide */
     if (y == 0) {
         return "you stupid"}
     
     return x / y
 }
+
+
 let num1 = 0
 let num2 = 0
 function operate(x,y,operator){
@@ -59,6 +61,7 @@ calcDiv.appendChild(keypad)
 let operator = ""
 const dividebutton = document.createElement("button")
 dividebutton.classList.add("operator","key")
+dividebutton.setAttribute("id", "/")
 dividebutton.addEventListener("click", () => {operator = "/"
     num1 = Number(textbox.value)
 textbox.value = ""
@@ -66,19 +69,19 @@ textbox.value = ""
 dividebutton.textContent = "/"
 
 
-
 const additionbutton = document.createElement("button")
 additionbutton.classList.add("operator","key")
+additionbutton.setAttribute("id", "+")
 additionbutton.textContent = "+"
 additionbutton.addEventListener("click", () => {operator = "+"
     num1 = Number(textbox.value)
     textbox.value = ""
     })
 
-   
 
 const subractionbutton = document.createElement("button")
 subractionbutton.classList.add("operator","key")
+subractionbutton.setAttribute("id", "-")
 subractionbutton.textContent = "-"
 subractionbutton.addEventListener("click", () => {operator = "-"
     num1 = Number(textbox.value)
@@ -86,15 +89,14 @@ subractionbutton.addEventListener("click", () => {operator = "-"
     })
 
 
-
 const multiplybutton = document.createElement("button")
 multiplybutton.classList.add("operator","key")
+multiplybutton.setAttribute("id", "*")
 multiplybutton.addEventListener("click", () => {operator = "*"
     num1 = Number(textbox.value)
     textbox.value = ""
 })
 multiplybutton.textContent = "*"
- 
 
 
 const equalbutton = document.createElement("button")
@@ -115,38 +117,38 @@ removelastbutton.addEventListener("click", () =>{
 })
 
 
-
 const negativeButton = document.createElement("button")                                                             
-negativeButton.classList.add("utility","key")
-negativeButton.textContent = "±"                                                                              /* TODO: make selected operator button glow */
-negativeButton.addEventListener("click", () =>{
-    if (textbox.value.charAt(0) == "-"){
-        textbox.value = textbox.value.slice(1)                                                                  /* TODO: remove user access to textbox and add keyboard support thru listeners */
+negativeButton.classList.add("utility","key")                                                                                   
+negativeButton.textContent = "±"                                                                              
+negativeButton.addEventListener("click", () =>{                                                                             
+    if (textbox.value.charAt(0) == "-"){                                                                         
+        textbox.value = textbox.value.slice(1)                                                               
     }
-    else{                                                                                                                               /* make textbox bg a nice color */
+    else{                                                                                                                            
         textbox.value = "-" + textbox.value
     }                                                                                                                  
 })
 
 
-const decimalButton = document.createElement("button")
+const decimalButton = document.createElement("button")                                                                   
+                                                                                                                
 decimalButton.classList.add("utility","key")
 decimalButton.textContent = "."
 decimalButton.addEventListener("click", () => {
-    if (textbox.value.includes(".")){
+    if (textbox.value.includes(".")){                                                                                          
         return
     }                                                                                                                                  
     textbox.value = textbox.value + "."
 
 })
+
+
 keypad.appendChild(removelastbutton)
 keypad.appendChild(clearbutton)
-
 keypad.appendChild(negativeButton)
-
-
 keypad.appendChild(dividebutton)
  
+
 for (let i = 0 ; i !== 10; i++){
 
     const button = document.createElement("button")
@@ -157,11 +159,11 @@ for (let i = 0 ; i !== 10; i++){
     keypad.appendChild(button)
 } 
 
+
 keypad.insertBefore(multiplybutton, document.getElementById("4"))
 keypad.insertBefore(subractionbutton, document.getElementById("7"))
 keypad.appendChild(additionbutton)
 keypad.appendChild(decimalButton)
-
 keypad.appendChild(equalbutton)
 keypad.insertBefore(document.getElementById("0"), decimalButton)
 document.getElementById("0").style.width = "200px"
