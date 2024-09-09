@@ -9,7 +9,7 @@ function subtract(x,y){
 function multiply(x,y){
     return x * y
 }
-function divide(x,y){                                           /* pressing equals before stating the second number has some sussy behaviour on multiply and divide */
+function divide(x,y){                                         
     if (y == 0) {
         return "you stupid"}
     
